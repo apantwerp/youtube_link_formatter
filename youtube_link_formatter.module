@@ -92,7 +92,7 @@ function youtube_link_formatter_field_formatter_view_youtube_link_formatter_play
   $ret = array();
   foreach ($items as $delta => $item) {
     // Extract the ID from the URL.
-    if ($youtube = youtube_link_formatter_id($item['url'])) {
+    if ($youtube = youtube_link_formatter_id($item['display_url'])) {
       $url = url($youtube['protocol'] . '://www.youtube.com/embed/' . $youtube['id'], $url_options);
       $title = check_plain($item['title']);
       $ret[] = array('#markup' => "<iframe title=\"$title\" src=\"$url\"$attributes></iframe>");
